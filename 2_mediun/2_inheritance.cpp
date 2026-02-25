@@ -38,7 +38,7 @@ public:
 
     void displayDetails()
     {
-        Product ::displayDetails();
+        Product :: displayDetails();
         cout << "Warranty period : " << warrantyPeriodInYears << " years." << endl;
         cout << "Brand : " << brand << endl;
     }
@@ -58,7 +58,7 @@ public:
 
     void displayDetails()
     {
-        Product ::displayDetails();
+        Product :: displayDetails();
         cout << "Size : " << size << endl;
         cout << "Color : " << color << endl;
     }
