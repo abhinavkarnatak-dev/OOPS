@@ -7,7 +7,7 @@ class Student
 {
 private:
     string name;
-    vector<Course*> courses;
+    vector<Course *> courses;
 
 public:
     Student(string name)
@@ -15,7 +15,7 @@ public:
         this->name = name;
     }
 
-    void addCourse(Course* course)
+    void addCourse(Course *course)
     {
         courses.push_back(course);
     }
@@ -24,13 +24,15 @@ public:
     {
         return name;
     }
+
+    void printAllCourses();
 };
 
 class Course
 {
 private:
     string name;
-    vector<Student*> students;
+    vector<Student *> students;
 
 public:
     Course(string name)
@@ -38,20 +40,34 @@ public:
         this->name = name;
     }
 
-    void addStudent(Student* student)
+    void addStudent(Student *student)
     {
         students.push_back(student);
+    }
+
+    string getName()
+    {
+        return name;
     }
 
     void printAllStudents()
     {
         for (int i = 0; i < students.size(); i++)
         {
-            Student* student = students[i];
-            cout << "Name : " << student->getName() << endl;
+            Student *student = students[i];
+            cout << "Student Name : " << student->getName() << endl;
         }
     }
 };
+
+void Student::printAllCourses()
+{
+    for (int i = 0; i < courses.size(); i++)
+    {
+        Course *course = courses[i];
+        cout << "Course Name : " << course->getName() << endl;
+    }
+}
 
 int main()
 {
@@ -66,12 +82,21 @@ int main()
     stu1.addCourse(&dsa);
     math.addStudent(&stu1);
     dsa.addStudent(&stu1);
+
     stu2.addCourse(&math);
     math.addStudent(&stu2);
+
     stu3.addCourse(&dsa);
     dsa.addStudent(&stu3);
 
     math.printAllStudents();
     cout << endl;
     dsa.printAllStudents();
+    cout << endl;
+
+    stu1.printAllCourses();
+    cout << endl;
+    stu2.printAllCourses();
+    cout << endl;
+    stu3.printAllCourses();
 }
